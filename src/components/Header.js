@@ -8,7 +8,8 @@ export default function Header() {
                 <DollarIcon />
                 <AppName>Meu dinheirinho</AppName>
             </Title>
-        
+            <NewTransactionButton>Nova Transação</NewTransactionButton>
+            <MobileTransactionButton>+</MobileTransactionButton>
         </ HeaderCss>
     );
 }
@@ -18,9 +19,13 @@ const HeaderCss = styled.header`
     width: 100%;
     height: 212px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 11.11%;
 
+    @media (max-width: 650px) {
+        padding: 0 24px;
+    }
 `;
 
 const Title = styled.div`
@@ -34,10 +39,56 @@ const DollarIcon = styled(AiFillDollarCircle)`
     width: 40px;
     height: 40px;
     margin-right: 16.79px;
+
+    @media (max-width: 650px) {
+        width: 31.21px;
+        height: 31.21px;
+        margin-right: 13.27px;
+    }
 `;
 
 const AppName = styled.p`
     color: #fff;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 25px;
+
+    @media (max-width: 650px) {
+        font-size: 19px;
+    }
 `;
+
+const NewTransactionButton = styled.button`
+    width: 195px;
+    height: 48px;
+    border-radius: 5px;
+    background-color: #6933FF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 650px) {
+        display: none;
+    }
+`;
+
+const MobileTransactionButton = styled.button`
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    border-radius: 5px;
+    background-color: #6933FF;
+    font-family: 'Poppins', sans-serif;
+    color: #FFF;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 650px) {
+        display: flex;
+    }
+`;
+
+
