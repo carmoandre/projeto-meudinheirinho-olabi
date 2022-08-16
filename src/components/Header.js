@@ -8,7 +8,7 @@ export default function Header() {
                 <DollarIcon />
                 <AppName>Meu dinheirinho</AppName>
             </Title>
-            <NewTransactionButton>Nova Transação</NewTransactionButton>
+            <WebTransactionButton>Nova Transação</WebTransactionButton>
             <MobileTransactionButton>+</MobileTransactionButton>
         </ HeaderCss>
     );
@@ -57,9 +57,7 @@ const AppName = styled.p`
     }
 `;
 
-const NewTransactionButton = styled.button`
-    width: 195px;
-    height: 48px;
+const NewTransactionButton = styled.button`    
     border-radius: 5px;
     background-color: #6933FF;
     font-family: 'Poppins', sans-serif;
@@ -69,23 +67,29 @@ const NewTransactionButton = styled.button`
     justify-content: center;
     align-items: center;
 
+    &:hover {
+        background-color: #6950FF;
+        cursor: pointer;
+    }
+`;
+
+
+
+const WebTransactionButton = styled(NewTransactionButton)`
+    width: 195px;
+    height: 48px;
+
     @media (max-width: 650px) {
         display: none;
     }
 `;
 
-const MobileTransactionButton = styled.button`
+const MobileTransactionButton = styled(NewTransactionButton)`
     width: 40px;
     height: 40px;
     font-size: 30px;
-    border-radius: 5px;
-    background-color: #6933FF;
-    font-family: 'Poppins', sans-serif;
-    color: #FFF;
     display: none;
-    justify-content: center;
-    align-items: center;
-
+ 
     @media (max-width: 650px) {
         display: flex;
     }
