@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import Header from "./components/Header"
+import Body from './components/Body';
 
 export default function App() {
   return (
@@ -7,10 +8,7 @@ export default function App() {
       <ResetCSS />
       <GlobalStyle />
       <Header />
-      <header className="App-header">
-       teste
-      </header>
-      <body>teste</body>
+      <Body />
     </div>
   );
 }
@@ -69,6 +67,7 @@ const ResetCSS = createGlobalStyle`
     }
     * {
         box-sizing: border-box;
+        border: none;
     }
     strong {
         font-weight: bold;
