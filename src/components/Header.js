@@ -24,7 +24,7 @@ const HeaderCss = styled.header`
     padding: 0 11.11% 90px 11.11%;
 
     @media (max-width: 650px) {
-        padding: 0 24px;
+        padding: 0 24px 90px 24px;
     }
 `;
 
