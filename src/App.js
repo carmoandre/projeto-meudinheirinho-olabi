@@ -1,12 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 import Header from "./components/Header"
 import Body from './components/Body';
+import Balances from './components/balances/Balances';
 
 export default function App() {
   return (
     <div className="App">
       <ResetCSS />
       <GlobalStyle />
+      <Balances />
       <Header />
       <Body />
     </div>

@@ -51,6 +51,7 @@ const AppName = styled.p`
     color: #fff;
     font-family: 'Poppins', sans-serif;
     font-size: 25px;
+    font-weight: 700;
 
     @media (max-width: 650px) {
         font-size: 19px;
@@ -62,6 +63,7 @@ const NewTransactionButton = styled.button`
     background-color: #6933FF;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
+    font-weight: 700;
     color: #FFF;
     display: flex;
     justify-content: center;
