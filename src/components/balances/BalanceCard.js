@@ -16,10 +16,8 @@ export default function BalanceCard(props){
         icon = <OutcomesIcon />;
     }
     
-        
-
     return(
-        <GeneralBalanceCard partialBalance={partialBalance}>
+        <GeneralBalanceCard partialBalance={partialBalance} >
             <CardInformation>
                 <CardTitle>{title}</CardTitle>
                 <BalanceValue>{icon}</BalanceValue>
@@ -35,6 +33,7 @@ const GeneralBalanceCard = styled.div`
     height: 136px;
     border-radius: 5px;
     padding: 25px 23px 25px 32px;
+    margin-right: ${({ partialBalance }) => (partialBalance ? "32px" : "0")};
     display: flex;
     flex-direction: column;
     justify-content: space-between;

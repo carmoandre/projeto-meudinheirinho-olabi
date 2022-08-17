@@ -4,12 +4,14 @@ import { AiFillDollarCircle } from "react-icons/ai";
 export default function Header() {
     return(
         <HeaderCss>
-            <Title>
-                <DollarIcon />
-                <AppName>Meu dinheirinho</AppName>
-            </Title>
-            <WebTransactionButton>Nova Transação</WebTransactionButton>
-            <MobileTransactionButton>+</MobileTransactionButton>
+            <ElementsContainer>
+                <Title>
+                    <DollarIcon />
+                    <AppName>Meu dinheirinho</AppName>
+                </Title>
+                <WebTransactionButton>Nova Transação</WebTransactionButton>
+                <MobileTransactionButton>+</MobileTransactionButton>
+            </ElementsContainer>
         </ HeaderCss>
     );
 }
@@ -19,13 +21,18 @@ const HeaderCss = styled.header`
     width: 100%;
     height: 212px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 11.11%;
+    padding: 0 11.11% 90px 11.11%;
 
     @media (max-width: 650px) {
         padding: 0 24px;
     }
+`;
+
+const ElementsContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 const Title = styled.div`
