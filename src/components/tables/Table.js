@@ -36,6 +36,8 @@ const FinancesTable = styled.table`
     font-size: 16px;
     font-weight: 400;
     width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0 8px; 
 `;
 
 const TableHeader = styled.th`
@@ -45,11 +47,21 @@ const TableHeader = styled.th`
 `;
 
 const TableRow = styled.tr`
-    margin-bottom: 8px;
-    border-radius: 5px;
 `;
 
 const TableCell = styled.td`
     padding: 20px 37px 20px 32px;
     background-color: #fff;
+
+    &:first-child {
+        border-left-style: solid;
+        border-top-left-radius: 10px; 
+        border-bottom-left-radius: 10px;
+    }
+
+    &:last-child {
+        border-right-style: solid;
+        border-bottom-right-radius: 10px; 
+        border-top-right-radius: 10px; 
+    }
 `;
