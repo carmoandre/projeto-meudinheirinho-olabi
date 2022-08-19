@@ -61,8 +61,8 @@ const TableCell = styled.td`
 
     &:nth-child(2){
         color: #33cc95;
-    }//Add red color for negative values #E52E4D
-
+        //Add red color for negative values #E52E4D
+    }
     &:nth-child(3) {
         color: #969CB2;
     }

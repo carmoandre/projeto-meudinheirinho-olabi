@@ -19,10 +19,10 @@ export default function BalanceCard(props){
     return(
         <GeneralBalanceCard partialBalance={partialBalance} >
             <CardInformation>
-                <CardTitle>{title}</CardTitle>
+                <CardTitle partialBalance={partialBalance}>{title}</CardTitle>
                 <BalanceValue>{icon}</BalanceValue>
             </CardInformation>
-            <BalanceValue>R$7.000,00</BalanceValue>
+            <BalanceValue partialBalance={partialBalance}>R$7.000,00</BalanceValue>
         </GeneralBalanceCard>
     );
     
@@ -51,6 +51,7 @@ const CardTitle = styled.p`
     font-weight: 400;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
+    color: ${({ partialBalance }) => (partialBalance ? "#000" : "#FFF")};
 `;
 
 
@@ -58,6 +59,7 @@ const BalanceValue = styled.p`
     font-weight: 400;
     font-size: 36px;
     font-family: 'Poppins', sans-serif;
+    color: ${({ partialBalance }) => (partialBalance ? "#000" : "#FFF")};
 `;
 
 const IncomesIcon = styled(BsArrowUpCircle)`
