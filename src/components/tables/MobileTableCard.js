@@ -21,13 +21,10 @@ const TransactionsCard = styled.div`
     background-color: #FFF;
     padding: 17px 28px 18px 24px;
     font-family: 'Poppins', sans-serif;
-    display: none;
     font-weight: 400;
     margin-bottom: 8px;
 
-    @media (max-width: 650px) {
-        display: block;
-    }
+    
 `;
 
 const CardInformation = styled.div`

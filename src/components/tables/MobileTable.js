@@ -19,6 +19,11 @@ export default function MobileTable(){
 const MobileTableContainer = styled.div`
     margin-top: 120px;
     font-family: 'Poppins', sans-serif;
+    display: none;
+
+    @media (max-width: 650px) {
+        display: block;
+    }
 `;
 
 const MobileTableHeader = styled.div`
