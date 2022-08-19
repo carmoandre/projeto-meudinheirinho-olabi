@@ -1,18 +1,31 @@
 import { createGlobalStyle } from 'styled-components';
+import ReactModal from 'react-modal';
 import Header from "./components/Header"
 import Body from './components/Body';
 import Balances from './components/balances/Balances';
+import { useState } from 'react';
 
 export default function App() {
-  return (
-    <div className="App">
-      <ResetCSS />
-      <GlobalStyle />
-      <Balances />
-      <Header />
-      <Body />
-    </div>
-  );
+    const [ismodalOpen, setIsModalOpen] =  useState(true);
+
+    function handleCloseModal () {
+        setIsModalOpen(false);
+    };
+
+    return (
+        <div className="App">
+        <ResetCSS />
+        <GlobalStyle />
+        <Balances />
+        <Header setIsModalOpen={setIsModalOpen} />
+        <Body />
+        <ReactModal 
+            isOpen={ismodalOpen} 
+            onRequestClose={()=> handleCloseModal()}
+            shouldCloseOnOverlayClick={true}
+        />
+        </div>
+    );
 }
 
 const ResetCSS = createGlobalStyle`
@@ -83,7 +96,7 @@ const GlobalStyle = createGlobalStyle`
     }
     
     body {
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Poppins', sans-serif;
         background: #E5E5E5;
         padding: 0px;
         margin: 0px;
@@ -91,11 +104,27 @@ const GlobalStyle = createGlobalStyle`
         width: 100%;
     }
     input {
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Poppins', sans-serif;
     }
 `;
 
-// font-family: 'Raleway', sans-serif;
-// font-family: 'Saira Stencil One', cursive;
 
+// const StyledReactModal = styled(ReactModal)`
+//     .Modal {
+//         position: absolute;
+//         top: 40px;
+//         left: 40px;
+//         right: 40px;
+//         bottom: 40px;
+//         background-color: papayawhip;
+//     }
 
+//     .Overlay {
+//         position: fixed;
+//         top: 0;
+//         left: 0;
+//         right: 0;
+//         bottom: 0;
+//         background-color: rebeccapurple;
+//     }
+// `;

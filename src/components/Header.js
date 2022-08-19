@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { AiFillDollarCircle } from "react-icons/ai";
 
-export default function Header() {
+export default function Header(props) {
+    const  { setIsModalOpen } = props;
+    function handleClick(){
+        setIsModalOpen(true);
+    }
+
     return(
         <HeaderCss>
             <ElementsContainer>
@@ -9,7 +14,7 @@ export default function Header() {
                     <DollarIcon />
                     <AppName>Meu dinheirinho</AppName>
                 </Title>
-                <WebTransactionButton>Nova Transação</WebTransactionButton>
+                <WebTransactionButton onClick={() => handleClick()} >Nova Transação</WebTransactionButton>
                 <MobileTransactionButton>+</MobileTransactionButton>
             </ElementsContainer>
         </ HeaderCss>
