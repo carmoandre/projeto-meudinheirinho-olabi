@@ -24,7 +24,6 @@ export default function Table() {
             <TableCell>05/08</TableCell>
           </TableRow>
         </FinancesTable>
-        
     );
     
 }
@@ -52,6 +51,7 @@ const TableRow = styled.tr`
 const TableCell = styled.td`
     padding: 20px 37px 20px 32px;
     background-color: #fff;
+    color: #363f5f;
 
     &:first-child {
         border-left-style: solid;
@@ -59,9 +59,18 @@ const TableCell = styled.td`
         border-bottom-left-radius: 10px;
     }
 
+    &:nth-child(2){
+        color: #33cc95;
+    }//Add red color for negative values #E52E4D
+
+    &:nth-child(3) {
+        color: #969CB2;
+    }
+
     &:last-child {
         border-right-style: solid;
         border-bottom-right-radius: 10px; 
         border-top-right-radius: 10px; 
+        color: #969CB2;
     }
 `;
