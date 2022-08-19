@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import MobileTable from "./tables/MobileTable";
 import Table from "./tables/Table";
 
 export default function Body () {
     return(
         <ContainerBody>    
             <Table />
+            <MobileTable/>
         </ContainerBody>
     );
 

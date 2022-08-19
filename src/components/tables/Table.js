@@ -37,6 +37,10 @@ const FinancesTable = styled.table`
     width: 100%;
     border-collapse: separate; 
     border-spacing: 0 8px; 
+
+    @media (max-width: 650px) {
+        display: none;
+    }
 `;
 
 const TableHeader = styled.th`
