@@ -2,16 +2,25 @@ import styled from "styled-components";
 import MobileTableCard from "./MobileTableCard";
 
 
-export default function MobileTable(){
+export default function MobileTable(data){
 
     return(
         <MobileTableContainer>
             <MobileTableHeader>
                 <MobileTableTitle>Listagem</MobileTableTitle>
-                <MobileTableAmmount>X itens</MobileTableAmmount>
+                <MobileTableAmmount>{data.data.length} itens</MobileTableAmmount>
             </MobileTableHeader>
-            <MobileTableCard/>
-            <MobileTableCard/>
+            {data.data.map((transaction) => {
+            return(<MobileTableData key={transaction.id} >
+                <MobileTableCard
+                    title={transaction.title}
+                    type={transaction.type} 
+                    amount={transaction.amount}
+                    category={transaction.category} 
+                    createdAt={transaction.createdAt} 
+                />
+            </MobileTableData>);
+            })}
         </MobileTableContainer>
     );
 }
@@ -43,3 +52,5 @@ const MobileTableAmmount = styled.p`
     font-size: 14px;
     color: #969cb2;
 `;
+
+const MobileTableData = styled.p``;

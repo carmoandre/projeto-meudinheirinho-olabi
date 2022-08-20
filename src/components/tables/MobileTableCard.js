@@ -1,16 +1,20 @@
 import styled from "styled-components";
 
-export default function MobileTableCard(){
+export default function MobileTableCard(props){
+
+    const {title, amount, type, category, createdAt} = props;
 
     return(
-        <TransactionsCard>
-            <CardTitle>Salário</CardTitle>
-            <CardValue>$30000</CardValue>
-            <CardInformation>
-                <TransactionCategory>Trabalho</TransactionCategory>
-                <TransactionDate>31/07</TransactionDate>
-            </CardInformation>
-        </TransactionsCard>
+        <>    
+            <TransactionsCard>
+                <CardTitle>{title}</CardTitle>
+                <CardValue type = {type}>{type==="income" ? "" : "-"} ${amount}</CardValue>
+                <CardInformation>
+                    <TransactionCategory>{category}</TransactionCategory>
+                    <TransactionDate>{createdAt}</TransactionDate>
+                </CardInformation>
+            </TransactionsCard>
+        </>
     );
 }
 
@@ -42,7 +46,7 @@ const CardTitle = styled.p`
 `;
 
 const CardValue = styled.p`
-    color: #33cc95; //Color will be choosen according to income or outcome #E52E4D
+    color: ${({type})=> type==="income" ? "#33cc95" : "#E52E4D"};
     font-size: 20px;
     margin-bottom: 25px;
 `;
