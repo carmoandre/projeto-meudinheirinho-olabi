@@ -4,9 +4,10 @@ import Header from "./components/Header"
 import Body from './components/Body';
 import Balances from './components/balances/Balances';
 import { useState } from 'react';
+import ModalForm from './components/ModalForm';
 
 export default function App() {
-    const [ismodalOpen, setIsModalOpen] =  useState(true);
+    const [ismodalOpen, setIsModalOpen] =  useState(false);
 
     function handleCloseModal () {
         setIsModalOpen(false);
@@ -23,7 +24,14 @@ export default function App() {
             isOpen={ismodalOpen} 
             onRequestClose={()=> handleCloseModal()}
             shouldCloseOnOverlayClick={true}
-        />
+            // className="ReactModal__Content"
+            // overlayClassName="ReactModal__Overlay"
+            // contentElement={() => <ModalStyle >teste</ModalStyle>}
+            // overlayElement={() => <OverlayStyle >overr</OverlayStyle>}
+        >
+            <ModalForm />
+        </ReactModal>
+        
         </div>
     );
 }
@@ -109,22 +117,20 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 
-// const StyledReactModal = styled(ReactModal)`
-//     .Modal {
-//         position: absolute;
-//         top: 40px;
-//         left: 40px;
-//         right: 40px;
-//         bottom: 40px;
-//         background-color: papayawhip;
-//     }
+// const ModalStyle = styled.div`
+//     position: absolute;
+//     top: 40px;
+//     left: 40px;
+//     right: 40px;
+//     bottom: 40px;
+//     background-color: papayawhip;
+// `;
 
-//     .Overlay {
-//         position: fixed;
-//         top: 0;
-//         left: 0;
-//         right: 0;
-//         bottom: 0;
-//         background-color: rebeccapurple;
-//     }
+// const OverlayStyle = styled.div`
+//     position: fixed;
+//     top: 50px;
+//     left: 50px;
+//     right: 50px;
+//     bottom: 50px;
+//     background-color: rebeccapurple;
 // `;
