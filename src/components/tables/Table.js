@@ -2,8 +2,8 @@ import styled from "styled-components"
 import TableCard from "./TableCard"
 
 
-export default function Table() {
-    
+export default function Table(data) {
+
     return(
         <FinancesTable>
           <TableRow>
@@ -12,12 +12,18 @@ export default function Table() {
             <TableHeader>Categoria</TableHeader>
             <TableHeader>Data</TableHeader>
           </TableRow>
-          <TableRow>
-            <TableCard />
-          </TableRow>
-          <TableRow>
-            <TableCard />
-          </TableRow>
+          {data.data.map((transaction) => {
+            return(<TableRow key={transaction.id} >
+              <TableCard 
+                title={transaction.title}
+                amount={transaction.amount}
+                type={transaction.type} 
+                category={transaction.category} 
+                createdAt={transaction.createdAt} 
+              />
+            </TableRow>);
+
+          })}
         </FinancesTable>
     );
     

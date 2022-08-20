@@ -5,10 +5,10 @@ import Body from './components/Body';
 import Balances from './components/balances/Balances';
 import { useState } from 'react';
 import ModalForm from './components/ModalForm';
-import JsonData from './fakeBackEnd/FakeBakeEnd.json'
+import FakeBakeEnd from './fakeBackEnd/FakeBakeEnd.js'
 
 export default function App() {
-    const [data, setData] = useState(JsonData);
+    const [data, setData] = useState(FakeBakeEnd);
     const [ismodalOpen, setIsModalOpen] =  useState(false);
 
     function handleCloseModal () {

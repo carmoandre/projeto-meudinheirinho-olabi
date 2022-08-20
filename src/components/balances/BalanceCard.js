@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { BsArrowDownCircle, BsArrowUpCircle, BsCurrencyDollar } from "react-icons/bs";
 
 export default function BalanceCard(props){
-    const { partialBalance, cardType }  = props;
+    const { partialBalance, cardType, amount }  = props;
     let icon, title;
     if (cardType==="total") {
         title = "Total";
@@ -22,7 +22,7 @@ export default function BalanceCard(props){
                 <CardTitle partialBalance={partialBalance}>{title}</CardTitle>
                 <BalanceValue>{icon}</BalanceValue>
             </CardInformation>
-            <BalanceValue partialBalance={partialBalance}>R$7.000,00</BalanceValue>
+            <BalanceValue partialBalance={partialBalance}>R${amount},00</BalanceValue>
         </GeneralBalanceCard>
     );
     

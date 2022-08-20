@@ -1,13 +1,33 @@
 import styled from "styled-components";
 import BalanceCard from "./BalanceCard";
 
-export default function Balances() {
+export default function Balances({data}) {
+    const amounts = getSums(data);
+
+    function getSums(data) {
+        let incomes = 0;
+        let outcomes = 0;
+
+        data.forEach(element => {
+            if (element.type==="income"){
+                incomes += parseInt(element.amount);
+            } else {
+                outcomes += parseInt(element.amount)
+            }
+        });
+
+        console.log("Total Incomes: ", incomes);
+        console.log("Total Oucomes: ", outcomes);
+
+        return {incomes, outcomes, total:(incomes - outcomes)};
+    };
+
     return(
         <BalanceContainer>
             <CarouserContainerInner>
-                <BalanceCard partialBalance={true} cardType="income" />
-                <BalanceCard partialBalance={true} cardType="outcome" />
-                <BalanceCard partialBalance={false} cardType="total" />
+                <BalanceCard partialBalance={true} cardType="income" amount={amounts.incomes}/>
+                <BalanceCard partialBalance={true} cardType="outcome" amount={amounts.outcomes}/>
+                <BalanceCard partialBalance={false} cardType="total" amount={amounts.total}/>
             </CarouserContainerInner>
         </ BalanceContainer>
     );

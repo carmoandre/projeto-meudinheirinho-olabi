@@ -1,16 +1,17 @@
 import styled from "styled-components"
 
 
-export default function Table() {
+export default function Table(props) {
+    const {title, amount, type, category, createdAt} = props;
     
     return(
         <>
-          
-            <TableCell>Salário</TableCell>
-            <TableCell>$30000</TableCell>
-            <TableCell>Trabalho</TableCell>
-            <TableCell>31/07</TableCell>
-          
+            <TableCell>{title}</TableCell>
+            <TableCell type={type}>
+                {type==="income" ? "" : "-"} ${amount}
+            </TableCell>
+            <TableCell>{category}</TableCell>
+            <TableCell>{createdAt}</TableCell>
         </>
     );
     
@@ -28,8 +29,7 @@ const TableCell = styled.td`
     }
 
     &:nth-child(2){
-        color: #33cc95;
-        //Add red color for negative values #E52E4D
+        color: ${({type})=> type==="income" ? "#33cc95" : "#E52E4D"};
     }
     &:nth-child(3) {
         color: #969CB2;
