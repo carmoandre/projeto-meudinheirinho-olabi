@@ -12,7 +12,7 @@ export default function ModalForm(){
     function submitTransaction(event) {
         event.preventDefault();
         console.log(value);
-    
+        
     }
 
     return(
@@ -49,7 +49,7 @@ export default function ModalForm(){
                     type="text"
                     placeholder="Categoria"
                     required
-                    value={title}
+                    value={category}
                     onChange={(e) => setCategory(e.target.value)}
                     maxLength="20"
                 />
@@ -156,7 +156,12 @@ const ChoiceButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FFF;
+    background-color: #FFF; //ternário trocar cor de fundo quando selecionado
+
+    &:hover {
+        background-color: #F0F2F5;
+        cursor: pointer;
+    }
 `;
 
 
@@ -168,4 +173,9 @@ const GenericButton = styled.button`
     font-weight: 700;
     border: none;
     border-radius: 5px;
+
+    &:hover {
+        background-color: #05BB95;
+        cursor: pointer;
+    }
 `;

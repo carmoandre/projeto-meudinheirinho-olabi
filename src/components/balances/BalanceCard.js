@@ -44,6 +44,7 @@ const GeneralBalanceCard = styled.div`
 const CardInformation = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     
 `;
 

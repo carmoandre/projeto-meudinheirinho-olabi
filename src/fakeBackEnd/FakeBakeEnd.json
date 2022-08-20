@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Salário",
+        "amount": 30000,
+        "type": "income",
+        "category": "Trabalho",
+        "createdAt": "31/07/2022"
+
+    },
+    {
+        "id": 1,
+        "title": "Show Beyoncé",
+        "amount": 700,
+        "type": "outcome",
+        "category": "Entretenimento",
+        "createdAt": "05/08/2022"
+    }
+]
+

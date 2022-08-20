@@ -5,8 +5,10 @@ import Body from './components/Body';
 import Balances from './components/balances/Balances';
 import { useState } from 'react';
 import ModalForm from './components/ModalForm';
+import JsonData from './fakeBackEnd/FakeBakeEnd.json'
 
 export default function App() {
+    const [data, setData] = useState(JsonData);
     const [ismodalOpen, setIsModalOpen] =  useState(false);
 
     function handleCloseModal () {
@@ -15,23 +17,23 @@ export default function App() {
 
     return (
         <div className="App">
-        <ResetCSS />
-        <GlobalStyle />
-        <Balances />
-        <Header setIsModalOpen={setIsModalOpen} />
-        <Body />
-        <ReactModal 
-            isOpen={ismodalOpen} 
-            onRequestClose={()=> handleCloseModal()}
-            shouldCloseOnOverlayClick={true}
-            // className="ReactModal__Content"
-            // overlayClassName="ReactModal__Overlay"
-            // contentElement={() => <ModalStyle >teste</ModalStyle>}
-            // overlayElement={() => <OverlayStyle >overr</OverlayStyle>}
-        >
-            <ModalForm />
-        </ReactModal>
-        
+            <ResetCSS />
+            <GlobalStyle />
+            <Balances data={data}/>
+            <Header setIsModalOpen={setIsModalOpen} />
+            <Body data={data}/>
+            <ReactModal 
+                setData={setData}
+                isOpen={ismodalOpen} 
+                onRequestClose={()=> handleCloseModal()}
+                shouldCloseOnOverlayClick={true}
+                // className="ReactModal__Content"
+                // overlayClassName="ReactModal__Overlay"
+                // contentElement={() => <ModalStyle >teste</ModalStyle>}
+                // overlayElement={() => <OverlayStyle >overr</OverlayStyle>}
+            >
+                <ModalForm />
+            </ReactModal>
         </div>
     );
 }
