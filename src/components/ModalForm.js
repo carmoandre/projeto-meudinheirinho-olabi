@@ -8,6 +8,7 @@ export default function ModalForm({ data, setData, setIsModalOpen }){
     const [title, setTitle] = useState("");
     const [amount, setAmount] = useState("");
     const [category, setCategory] = useState("");
+    const [type, setType] = useState(""); 
 
     function getDate(){
         const newDate = new Date();
@@ -21,6 +22,11 @@ export default function ModalForm({ data, setData, setIsModalOpen }){
         `;
     }
 
+    function handleToggleChoice(chosen){
+        setType(chosen);
+    }
+
+
     function submitTransaction(event) {
         event.preventDefault();
 
@@ -30,7 +36,7 @@ export default function ModalForm({ data, setData, setIsModalOpen }){
             id: ((data[data.length-1].id) + 1),
             title,
             amount: parseInt(amount * 1000),
-            type: "income",
+            type,
             category,
             createdAt
         }
@@ -40,13 +46,16 @@ export default function ModalForm({ data, setData, setIsModalOpen }){
 
         setData(newData);
         setIsModalOpen(false);
+        setType("");
         
     }
 
     return(
         <FormContainer>
-
-            <Title>Cadastrar transação</Title>
+            <ModalHeader>
+                <Title>Cadastrar transação</Title>
+                <CloseModal type="button" onClick={()=>setIsModalOpen(false)}>x</CloseModal>
+            </ModalHeader>
             <Form onSubmit={submitTransaction}>
                 <GenericInput
                     type="text"
@@ -63,15 +72,23 @@ export default function ModalForm({ data, setData, setIsModalOpen }){
                     onChange={(e) => setAmount(e.target.value)}
                 ></FormatedValueInput>
                 <IncomeOutcomeChoice>
-                    <ChoiceButton type="button">
+                    <IncomeButton 
+                        type="button"
+                        onClick={()=>handleToggleChoice("income")}
+                        isIncome={(type)}
+                    >
                         <IncomesIcon />
                         Entrada
-                    </ChoiceButton>
+                    </IncomeButton>
                     <ButtonsGap />
-                    <ChoiceButton type="button">
+                    <OutcomeButton 
+                        type="button"
+                        onClick={()=>handleToggleChoice("outcome")}
+                        isIncome={(type)}
+                    >
                         <OutcomesIcon />
                         Saída
-                    </ChoiceButton>
+                    </OutcomeButton>
                 </IncomeOutcomeChoice>
                 <GenericInput
                     type="text"
@@ -98,13 +115,31 @@ const FormContainer = styled.div`
     font-family: 'Poppins', sans-serif;
 `;
 
+const ModalHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+`;
+    
 
-const Title = styled.p`
+const CloseModal = styled.button`
+    background-color: #FFF;
     font-weight: 700;
     font-size: 24px;
-    margin-bottom: 40px;
     color: #363F5F;
+
+    &:hover {
+        background-color: #F0F2F5;
+        cursor: pointer;
+    }
+`;
+
+const Title = styled.p`
+    margin-bottom: 40px;
     line-height: 31px;
+    font-weight: 700;
+    font-size: 24px;
+    color: #363F5F;
 `;
 
 const Form = styled.form`
@@ -184,12 +219,19 @@ const ChoiceButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FFF; //ternário trocar cor de fundo quando selecionado
 
     &:hover {
         background-color: #F0F2F5;
         cursor: pointer;
     }
+`;
+
+const IncomeButton = styled(ChoiceButton)`
+    background-color: ${({isIncome}) => isIncome==="income" ? "#F0F2F5" : "#FFF"}; 
+`;
+
+const OutcomeButton = styled(ChoiceButton)`
+    background-color: ${({isIncome}) => isIncome==="outcome" ? "#F0F2F5" : "#FFF"}; 
 `;
 
 
