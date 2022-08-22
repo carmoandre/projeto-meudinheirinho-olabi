@@ -15,7 +15,7 @@ export default function Header(props) {
                     <AppName>Meu dinheirinho</AppName>
                 </Title>
                 <WebTransactionButton onClick={() => handleClick()} >Nova Transação</WebTransactionButton>
-                <MobileTransactionButton>+</MobileTransactionButton>
+                <MobileTransactionButton onClick={() => handleClick()}>+</MobileTransactionButton>
             </ElementsContainer>
         </ HeaderCss>
     );

@@ -3,13 +3,17 @@ import ReactModal from 'react-modal';
 import Header from "./components/Header"
 import Body from './components/Body';
 import Balances from './components/balances/Balances';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ModalForm from './components/ModalForm';
 import FakeBakeEnd from './fakeBackEnd/FakeBakeEnd.js'
 
 export default function App() {
     const [data, setData] = useState(FakeBakeEnd);
     const [ismodalOpen, setIsModalOpen] =  useState(false);
+
+    useEffect(() => {
+        setData(data);
+    }, [data]);
 
     function handleCloseModal () {
         setIsModalOpen(false);
@@ -23,7 +27,6 @@ export default function App() {
             <Header setIsModalOpen={setIsModalOpen} />
             <Body data={data}/>
             <ReactModal 
-                setData={setData}
                 isOpen={ismodalOpen} 
                 onRequestClose={()=> handleCloseModal()}
                 shouldCloseOnOverlayClick={true}
@@ -32,7 +35,11 @@ export default function App() {
                 // contentElement={() => <ModalStyle >teste</ModalStyle>}
                 // overlayElement={() => <OverlayStyle >overr</OverlayStyle>}
             >
-                <ModalForm />
+                <ModalForm 
+                    data={data}
+                    setData={setData}
+                    setIsModalOpen={setIsModalOpen}
+                />
             </ReactModal>
         </div>
     );

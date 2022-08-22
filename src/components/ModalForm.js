@@ -4,14 +4,49 @@ import { useState } from "react";
 import { BsArrowDownCircle, BsArrowUpCircle } from "react-icons/bs";
 
 
-export default function ModalForm(){
+export default function ModalForm({ data, setData, setIsModalOpen }){
     const [title, setTitle] = useState("");
-    const [value, setValue] = useState("");
+    const [amount, setAmount] = useState("");
     const [category, setCategory] = useState("");
+
+    function getDate(){
+        const newDate = new Date();
+
+        const day = parseInt(newDate.getDate());
+        const month = parseInt(newDate.getMonth()) + 1;
+        const year = parseInt(newDate.getFullYear());
+
+        return `
+            ${day < 10 ? "0" + day : day}
+            /${month < 10 ? "0" + month : month}
+            /${year}
+        `;
+    }
 
     function submitTransaction(event) {
         event.preventDefault();
-        console.log(value);
+
+        const createdAt = getDate();
+        console.log("amount: ", amount);
+        console.log("Tipo de amount: ", typeof amount);
+
+        const teste = amount.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+        console.log("Teste Reais: ", teste);
+
+        const newTransaction = {
+            id: ((data[data.length-1].id) + 1),
+            title,
+            amount,
+            type: "income",
+            category,
+            createdAt
+        }
+
+        const newData = [...data];
+        newData.push(newTransaction);
+
+        setData(newData);
+        setIsModalOpen(false);
         
     }
 
@@ -32,7 +67,7 @@ export default function ModalForm(){
                     type="number"
                     placeholder="Preço"
                     required
-                    onChange={(e) => setValue(e.target.value)}
+                    onChange={(e) => setAmount(e.target.value)}
                 ></FormatedValueInput>
                 <IncomeOutcomeChoice>
                     <ChoiceButton>

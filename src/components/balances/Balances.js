@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import BalanceCard from "./BalanceCard";
 
@@ -16,11 +17,10 @@ export default function Balances({data}) {
             }
         });
 
-        console.log("Total Incomes: ", incomes);
-        console.log("Total Oucomes: ", outcomes);
-
         return {incomes, outcomes, total:(incomes - outcomes)};
     };
+
+    useEffect(() => {}, [amounts]);
 
     return(
         <BalanceContainer>
