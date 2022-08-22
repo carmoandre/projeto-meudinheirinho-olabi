@@ -25,9 +25,9 @@ export default function Balances({data}) {
     return(
         <BalanceContainer>
             <CarouserContainerInner>
-                <BalanceCard partialBalance={true} cardType="income" amount={amounts.incomes/100}/>
-                <BalanceCard partialBalance={true} cardType="outcome" amount={amounts.outcomes/100}/>
-                <BalanceCard partialBalance={false} cardType="total" amount={amounts.total/100}/>
+                <BalanceCard partialBalance={true} cardType="income" amount={amounts.incomes}/>
+                <BalanceCard partialBalance={true} cardType="outcome" amount={amounts.outcomes}/>
+                <BalanceCard partialBalance={false} cardType="total" amount={amounts.total}/>
             </CarouserContainerInner>
         </ BalanceContainer>
     );

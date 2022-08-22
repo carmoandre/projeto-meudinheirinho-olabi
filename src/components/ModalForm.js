@@ -63,12 +63,12 @@ export default function ModalForm({ data, setData, setIsModalOpen }){
                     onChange={(e) => setAmount(e.target.value)}
                 ></FormatedValueInput>
                 <IncomeOutcomeChoice>
-                    <ChoiceButton>
+                    <ChoiceButton type="button">
                         <IncomesIcon />
                         Entrada
                     </ChoiceButton>
                     <ButtonsGap />
-                    <ChoiceButton>
+                    <ChoiceButton type="button">
                         <OutcomesIcon />
                         Saída
                     </ChoiceButton>

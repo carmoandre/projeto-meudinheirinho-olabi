@@ -16,7 +16,7 @@ export default function BalanceCard(props){
         icon = <OutcomesIcon />;
     }
 
-    const formattedAmount = amount.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    const formattedAmount = (amount/100).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     
     return(
         <GeneralBalanceCard partialBalance={partialBalance} >
