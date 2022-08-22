@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import ModalForm from './components/modal/ModalForm';
 import FakeBakeEnd from './fakeBackEnd/FakeBakeEnd.js'
 
+
 export default function App() {
     const [data, setData] = useState(FakeBakeEnd);
     const [ismodalOpen, setIsModalOpen] =  useState(false);
@@ -32,10 +33,6 @@ export default function App() {
                 shouldCloseOnOverlayClick={true}
                 className="Modal"
                 overlayClassName="Overlay"
-                // className="ReactModal__Content"
-                // overlayClassName="ReactModal__Overlay"
-                // contentElement={() => <ModalStyle >teste</ModalStyle>}
-                // overlayElement={() => <OverlayStyle >overr</OverlayStyle>}
             >
                 <ModalForm 
                     data={data}
@@ -46,6 +43,7 @@ export default function App() {
         </div>
     );
 }
+
 
 const ResetCSS = createGlobalStyle`
     /* http://meyerweb.com/eric/tools/css/reset/ 

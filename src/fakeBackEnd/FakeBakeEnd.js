@@ -26,10 +26,10 @@ const dataFakeBackEnd = [
     },
     {
         id: 4,
-        title: "Peer Bônus",
-        amount: 30000,
+        title: "Envelope da avó",
+        amount: 10000,
         type: "income",
-        category: "Trabalho",
+        category: "Presente",
         createdAt: "11/08/2022"
     }
 ]
