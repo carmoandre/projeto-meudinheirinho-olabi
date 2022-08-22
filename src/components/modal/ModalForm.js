@@ -2,6 +2,7 @@ import styled from "styled-components";
 import CurrencyInput from "react-currency-masked-input";
 import { useState } from "react";
 import { BsArrowDownCircle, BsArrowUpCircle } from "react-icons/bs";
+import "./styles.css"
 
 
 export default function ModalForm({ data, setData, setIsModalOpen }){
@@ -113,6 +114,7 @@ const FormContainer = styled.div`
     justify-content: center;
     width: 100%;
     font-family: 'Poppins', sans-serif;
+    padding: 20px;
 `;
 
 const ModalHeader = styled.div`
@@ -132,14 +134,23 @@ const CloseModal = styled.button`
         background-color: #F0F2F5;
         cursor: pointer;
     }
+
+    @media (max-width: 650px) {
+        font-size: 20px;
+        margin: 24px 0;
+    }
 `;
 
 const Title = styled.p`
     margin-bottom: 40px;
-    line-height: 31px;
     font-weight: 700;
     font-size: 24px;
     color: #363F5F;
+
+    @media (max-width: 650px) {
+        font-size: 20px;
+        margin: 24px 0;
+    }
 `;
 
 const Form = styled.form`
@@ -149,6 +160,10 @@ const Form = styled.form`
     align-items: center;
     width: 100%;
     font-size: 16px;
+
+    @media (max-width: 650px) {
+        font-size: 14px;
+    }
 `;
 
 const GenericInput = styled.input`
@@ -161,9 +176,15 @@ const GenericInput = styled.input`
     color: #969CB3;
     outline: none;
     background-color: #E7E9EE;
+
     &::placeholder {
         color: #969CB3;
     }
+
+    @media (max-width: 650px) {
+        height: 56px;
+    }
+
 `;
 
 const FormatedValueInput = styled(CurrencyInput)`
@@ -180,6 +201,10 @@ const FormatedValueInput = styled(CurrencyInput)`
     &::placeholder {
         color: #969CB3;
     }
+
+    @media (max-width: 650px) {
+        height: 56px;
+    }
 `;
 
 const IncomeOutcomeChoice = styled.div`
@@ -188,7 +213,10 @@ const IncomeOutcomeChoice = styled.div`
     height: 64px;
     margin-bottom: 13px;
     justify-content: space-between;
-
+    
+    @media (max-width: 650px) {
+        height: 56px;
+    }
 `;
 
 const IncomesIcon = styled(BsArrowUpCircle)`
@@ -223,6 +251,10 @@ const ChoiceButton = styled.button`
     &:hover {
         background-color: #F0F2F5;
         cursor: pointer;
+    }
+
+    @media (max-width: 650px) {
+        height: 56px;
     }
 `;
 

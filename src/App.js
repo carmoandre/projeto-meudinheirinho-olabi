@@ -4,7 +4,7 @@ import Header from "./components/Header"
 import Body from './components/Body';
 import Balances from './components/balances/Balances';
 import { useEffect, useState } from 'react';
-import ModalForm from './components/ModalForm';
+import ModalForm from './components/modal/ModalForm';
 import FakeBakeEnd from './fakeBackEnd/FakeBakeEnd.js'
 
 export default function App() {
@@ -30,6 +30,8 @@ export default function App() {
                 isOpen={ismodalOpen} 
                 onRequestClose={()=> handleCloseModal()}
                 shouldCloseOnOverlayClick={true}
+                className="Modal"
+                overlayClassName="Overlay"
                 // className="ReactModal__Content"
                 // overlayClassName="ReactModal__Overlay"
                 // contentElement={() => <ModalStyle >teste</ModalStyle>}
@@ -126,20 +128,3 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 
-// const ModalStyle = styled.div`
-//     position: absolute;
-//     top: 40px;
-//     left: 40px;
-//     right: 40px;
-//     bottom: 40px;
-//     background-color: papayawhip;
-// `;
-
-// const OverlayStyle = styled.div`
-//     position: fixed;
-//     top: 50px;
-//     left: 50px;
-//     right: 50px;
-//     bottom: 50px;
-//     background-color: rebeccapurple;
-// `;
