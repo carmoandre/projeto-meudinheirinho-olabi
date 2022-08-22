@@ -3,12 +3,14 @@ import styled from "styled-components"
 
 export default function Table(props) {
     const {title, amount, type, category, createdAt} = props;
+
+    const formattedAmount = (amount/100).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     
     return(
         <>
             <TableCell>{title}</TableCell>
             <TableCell type={type}>
-                {type==="income" ? "" : "-"} ${amount}
+                {type==="income" ? "" : "-"} {formattedAmount}
             </TableCell>
             <TableCell>{category}</TableCell>
             <TableCell>{createdAt}</TableCell>

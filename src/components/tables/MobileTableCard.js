@@ -4,11 +4,13 @@ export default function MobileTableCard(props){
 
     const {title, amount, type, category, createdAt} = props;
 
+    const formattedAmount = (amount/100).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+
     return(
         <>    
             <TransactionsCard>
                 <CardTitle>{title}</CardTitle>
-                <CardValue type = {type}>{type==="income" ? "" : "-"} ${amount}</CardValue>
+                <CardValue type = {type}>{type==="income" ? "" : "-"} {formattedAmount}</CardValue>
                 <CardInformation>
                     <TransactionCategory>{category}</TransactionCategory>
                     <TransactionDate>{createdAt}</TransactionDate>

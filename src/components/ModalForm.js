@@ -17,9 +17,7 @@ export default function ModalForm({ data, setData, setIsModalOpen }){
         const year = parseInt(newDate.getFullYear());
 
         return `
-            ${day < 10 ? "0" + day : day}
-            /${month < 10 ? "0" + month : month}
-            /${year}
+            ${day < 10 ? "0" + day : day}/${month < 10 ? "0" + month : month}/${year}
         `;
     }
 
@@ -27,16 +25,11 @@ export default function ModalForm({ data, setData, setIsModalOpen }){
         event.preventDefault();
 
         const createdAt = getDate();
-        console.log("amount: ", amount);
-        console.log("Tipo de amount: ", typeof amount);
-
-        const teste = amount.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-        console.log("Teste Reais: ", teste);
 
         const newTransaction = {
             id: ((data[data.length-1].id) + 1),
             title,
-            amount,
+            amount: parseInt(amount * 1000),
             type: "income",
             category,
             createdAt
