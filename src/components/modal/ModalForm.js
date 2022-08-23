@@ -103,7 +103,7 @@ export default function ModalForm({ data, setData, setIsModalOpen }){
                     Cadastrar
                 </GenericButton>
             </Form>
-            
+            <WarningMessage>Antes de gastar seu <strong>dinheiro</strong>, verifique se o estabelecimento apoia <strong>fascistas</strong>!</WarningMessage>
         </FormContainer>
     );
 }
@@ -112,6 +112,7 @@ const FormContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
     font-family: 'Poppins', sans-serif;
     padding: 20px;
@@ -121,6 +122,7 @@ const ModalHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    width: 100%;
 `;
     
 
@@ -270,14 +272,24 @@ const OutcomeButton = styled(ChoiceButton)`
 const GenericButton = styled.button`
     width: 100%;
     height: 46px;
-    background-color: #33CC95;
+    background-color: #F46BCE;
     color: #fff;
     font-weight: 700;
     border: none;
     border-radius: 5px;
 
     &:hover {
-        background-color: #05BB95;
+        background-color: #FF90E0;
         cursor: pointer;
+    }
+`;
+
+const WarningMessage = styled.span`
+    margin-top: 15px;
+    width: 70%;
+    text-align: center;
+
+    @media (max-width: 650px) {
+        width: 90%; 
     }
 `;

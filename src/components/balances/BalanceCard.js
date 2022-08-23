@@ -39,7 +39,7 @@ const GeneralBalanceCard = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: ${({ partialBalance }) => (partialBalance ? "#FFF" : "#33CC95")};
+    background-color: ${({ partialBalance }) => (partialBalance ? "#FFF" : "#E9E904")};
     
 `;
 
@@ -54,7 +54,7 @@ const CardTitle = styled.p`
     font-weight: 400;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
-    color: ${({ partialBalance }) => (partialBalance ? "#000" : "#FFF")};
+    color: ${({ partialBalance }) => (partialBalance ? "#000" : "#E91CAF")};
 `;
 
 
@@ -62,7 +62,7 @@ const BalanceValue = styled.p`
     font-weight: 400;
     font-size: 36px;
     font-family: 'Poppins', sans-serif;
-    color: ${({ partialBalance }) => (partialBalance ? "#000" : "#FFF")};
+    color: ${({ partialBalance }) => (partialBalance ? "#000" : "#E91CAF")};
 `;
 
 const IncomesIcon = styled(BsArrowUpCircle)`
@@ -78,7 +78,7 @@ const OutcomesIcon = styled(BsArrowDownCircle)`
 `;
 
 const TotalIcon = styled(BsCurrencyDollar)`
-    color: #fff;
+    color: #E91CAF;
     width: 27px;
     height: 27px;
 `;

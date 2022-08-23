@@ -12,7 +12,7 @@ export default function Header(props) {
             <ElementsContainer>
                 <Title>
                     <DollarIcon />
-                    <AppName>Meu dinheirinho</AppName>
+                    <AppName>My pink money</AppName>
                 </Title>
                 <WebTransactionButton onClick={() => handleClick()} >Nova Transação</WebTransactionButton>
                 <MobileTransactionButton onClick={() => handleClick()}>+</MobileTransactionButton>
@@ -22,7 +22,7 @@ export default function Header(props) {
 }
 
 const HeaderCss = styled.header`
-    background-color: #5429CC;
+    background-color: #E91CAF;
     width: 100%;
     height: 212px;
     display: flex;
@@ -47,7 +47,7 @@ const Title = styled.div`
 `;
 
 const DollarIcon = styled(AiFillDollarCircle)`
-    color: #33cc95;
+    color: #F4F40A;
     width: 40px;
     height: 40px;
     margin-right: 16.79px;
@@ -72,7 +72,7 @@ const AppName = styled.p`
 
 const NewTransactionButton = styled.button`    
     border-radius: 5px;
-    background-color: #6933FF;
+    background-color: #F46BCE;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: 700;
@@ -82,7 +82,7 @@ const NewTransactionButton = styled.button`
     align-items: center;
 
     &:hover {
-        background-color: #6950FF;
+        background-color: #FF90E0;
         cursor: pointer;
     }
 `;
